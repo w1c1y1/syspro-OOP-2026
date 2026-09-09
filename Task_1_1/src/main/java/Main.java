@@ -1,6 +1,6 @@
 public class Main {
     /**
-     * Method for swapping elements of an array by their index
+     * Method for swapping elements of an array by their index.
      *
      * @param array array of ints
      * @param index1 index of first elem to swap
@@ -13,19 +13,19 @@ public class Main {
     }
 
     /**
-     * Function to compare two elements
+     * Function to compare two elements.
      *
      * @param array array of ints
      * @param index1 first index
      * @param index2 second index
-     * @return
+     * @return boolean result
      */
     private static boolean compare(int[] array, int index1, int index2) {
         return array[index1] > array[index2];
     }
 
     /**
-     * Method for shift down elements of an array with binary heap invariant
+     * Method for shift down elements of an array with binary heap invariant.
      *
      * @param array array that we sort
      * @param index index of elem to shift down
@@ -52,7 +52,7 @@ public class Main {
     }
 
     /**
-     * heapSort implementation
+     * heapSort implementation.
      *
      * @param array array that we sorting
      */
