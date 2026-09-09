@@ -2,9 +2,9 @@ public class Main {
     /**
      * Method for swapping elements of an array by their index
      *
-     * @param array
-     * @param index1
-     * @param index2
+     * @param array array of ints
+     * @param index1 index of first elem to swap
+     * @param index2 index of second elem to swap
      */
     private static void swap(int[] array, int index1, int index2) {
         int temp = array[index1];
@@ -15,9 +15,9 @@ public class Main {
     /**
      * Function to compare two elements
      *
-     * @param array
-     * @param index1
-     * @param index2
+     * @param array array of ints
+     * @param index1 first index
+     * @param index2 second index
      * @return
      */
     private static boolean compare(int[] array, int index1, int index2) {
@@ -27,9 +27,9 @@ public class Main {
     /**
      * Method for shift down elements of an array with binary heap invariant
      *
-     * @param array
-     * @param index
-     * @param len
+     * @param array array that we sort
+     * @param index index of elem to shift down
+     * @param len len of an array
      */
     private static void shiftDown(int[] array, int index, int len) {
         while (true) {
@@ -54,7 +54,7 @@ public class Main {
     /**
      * heapSort implementation
      *
-     * @param array
+     * @param array array that we sorting
      */
     public static void heapSort(int[] array) {
         int len = array.length;
