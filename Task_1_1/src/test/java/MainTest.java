@@ -40,13 +40,25 @@ class MainTest {
     }
 
     @Test
-    void testEdgeCases() {
+    void testEdgeCasesEmpty() {
         int[] empty = {};
         Main.heapSort(empty);
         assertArrayEquals(new int[]{}, empty);
+    }
 
+    @Test
+    void testEdgeCasesSingle() {
         int[] single = {42};
         Main.heapSort(single);
         assertArrayEquals(new int[]{42}, single);
     }
+
+    @Test
+    void testEdgeCasesTwo() {
+        int[] actual = {42, 12};
+        int[] expected = {12, 42};
+        Main.heapSort(actual);
+        assertArrayEquals(expected, actual);
+    }
+
 }

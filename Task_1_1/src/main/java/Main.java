@@ -52,7 +52,7 @@ public class Main {
     }
 
     /**
-     * heapSort implementation.
+     * heapSort implementation, thats sorts the original array
      *
      * @param array array that we sorting
      */
