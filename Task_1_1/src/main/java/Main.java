@@ -1,10 +1,16 @@
+import java.util.Arrays;
+
+
+/**
+ * Contains implementation of heapSort algorythm that sorts given array.
+ */
 public class Main {
     /**
      * Method for swapping elements of an array by their index.
      *
-     * @param array array of ints
-     * @param index1 index of first elem to swap
-     * @param index2 index of second elem to swap
+     * @param array array of ints.
+     * @param index1 index of first elem to swap.
+     * @param index2 index of second elem to swap.
      */
     private static void swap(int[] array, int index1, int index2) {
         int temp = array[index1];
@@ -15,10 +21,10 @@ public class Main {
     /**
      * Function to compare two elements.
      *
-     * @param array array of ints
-     * @param index1 first index
-     * @param index2 second index
-     * @return boolean result
+     * @param array array of ints.
+     * @param index1 first index.
+     * @param index2 second index.
+     * @return boolean result.
      */
     private static boolean compare(int[] array, int index1, int index2) {
         return array[index1] > array[index2];
@@ -27,9 +33,9 @@ public class Main {
     /**
      * Method for shift down elements of an array with binary heap invariant.
      *
-     * @param array array that we sort
-     * @param index index of elem to shift down
-     * @param len len of an array
+     * @param array array that we sort.
+     * @param index index of elem to shift down.
+     * @param len len of an array.
      */
     private static void shiftDown(int[] array, int index, int len) {
         while (true) {
@@ -52,9 +58,9 @@ public class Main {
     }
 
     /**
-     * heapSort implementation, thats sorts the original array
+     * heapSort implementation, thats sorts the original array.
      *
-     * @param array array that we sorting
+     * @param array array that we sorting.
      */
     public static void heapSort(int[] array) {
         int len = array.length;
@@ -67,4 +73,14 @@ public class Main {
         }
     }
 
+    /**
+     * main function for build.sh.
+     * @param args.
+     */
+    public static void main(String[] args) {
+        int[] array = {69, 52, 42, 3, 1, 999, 0, 5};
+        System.out.println("original: " + Arrays.toString(array));
+        Main.heapSort(array);
+        System.out.println("sorted: " + Arrays.toString(array));
+    }
 }
