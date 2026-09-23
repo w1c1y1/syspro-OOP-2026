@@ -1,8 +1,5 @@
-import java.util.*;
+import java.util.Scanner;
 
-/**
- * Class that imitates game. It runs dealer and player and read/write input/output in console.
- */
 public class Engine {
     private final Deck deck;
     private final Player player;
@@ -11,18 +8,10 @@ public class Engine {
     private int dealerScore;
     private int roundNumber;
 
-    /**
-     * Sets standard game engine with default shuffled deck.
-     */
     public Engine() {
         this(new Deck());
     }
 
-    /**
-     * Sets game engine with a pre-formed or custom deck (e.g. for deterministic testing).
-     *
-     * @param deck Custom Deck instance with pre-configured card sequence.
-     */
     public Engine(Deck deck) {
         this.deck = deck;
         this.player = new Player();
@@ -32,17 +21,10 @@ public class Engine {
         this.roundNumber = 1;
     }
 
-    /**
-     * Starts/ends the game.
-     */
     public void start() {
         start(new Scanner(System.in));
     }
 
-    /**
-     * Starts/ends the game with custom scanner.
-     * @param scanner scanner that scans input.
-     */
     public void start(Scanner scanner) {
         System.out.println("Добро пожаловать в Блэкджек!");
 
@@ -54,16 +36,13 @@ public class Engine {
             System.out.print("\nХотите сыграть еще раунд? (1 - Да, 0 - Нет): ");
             String choice = scanner.nextLine().trim();
             if (!choice.equals("1")) {
-                System.out.println("Спасибо за игру! Итоговый счет: " + playerScore + ":" + dealerScore);
+                System.out.println("Спасибо за игру! Итоговый счет: "
+                        + playerScore + ":" + dealerScore);
                 break;
             }
         }
     }
 
-    /**
-     * Method for playing a round.
-     * @param scanner scanner that scans input.
-     */
     private void playRound(Scanner scanner) {
         player.clearHand();
         dealer.clearHand();
@@ -76,20 +55,22 @@ public class Engine {
         System.out.println("Дилер раздал карты");
         printTableState(true);
 
-        boolean playerBJ = player.hasBlackjack();
-        boolean dealerBJ = dealer.hasBlackjack();
+        boolean playerBlackjack = player.hasBlackjack();
+        boolean dealerBlackjack = dealer.hasBlackjack();
 
-        if (playerBJ || dealerBJ) {
+        if (playerBlackjack || dealerBlackjack) {
             System.out.println("\nДилер открывает закрытую карту " + dealer.getHand().get(1));
             printTableState(false);
-            if (playerBJ && dealerBJ) {
+            if (playerBlackjack && dealerBlackjack) {
                 System.out.println("У обоих блэкджек! Ничья.");
-            } else if (playerBJ) {
+            } else if (playerBlackjack) {
                 playerScore++;
-                System.out.println("Блэкджек! Вы выиграли раунд! Счет " + playerScore + ":" + dealerScore + " в вашу пользу.");
+                System.out.println("Блэкджек! Вы выиграли раунд! Счет "
+                        + playerScore + ":" + dealerScore + " в вашу пользу.");
             } else {
                 dealerScore++;
-                System.out.println("У дилера блэкджек! Дилер выиграл раунд! Счет " + playerScore + ":" + dealerScore + ".");
+                System.out.println("У дилера блэкджек! Дилер выиграл раунд! Счет "
+                        + playerScore + ":" + dealerScore + ".");
             }
             return;
         }
@@ -120,7 +101,8 @@ public class Engine {
 
         if (playerBusted) {
             dealerScore++;
-            System.out.println("\nУ вас перебор! Дилер выиграл раунд! Счет " + playerScore + ":" + dealerScore + ".");
+            System.out.println("\nУ вас перебор! Дилер выиграл раунд! Счет "
+                    + playerScore + ":" + dealerScore + ".");
             return;
         }
 
@@ -138,27 +120,26 @@ public class Engine {
 
         if (dealer.isBust()) {
             playerScore++;
-            System.out.println("\nУ дилера перебор! Вы выиграли раунд! Счет " + playerScore + ":" + dealerScore + " в вашу пользу.");
+            System.out.println("\nУ дилера перебор! Вы выиграли раунд! Счет "
+                    + playerScore + ":" + dealerScore + " в вашу пользу.");
         } else {
-            int pScore = player.getScore();
-            int dScore = dealer.getScore();
+            int playerPoints = player.getScore();
+            int dealerPoints = dealer.getScore();
 
-            if (pScore > dScore) {
+            if (playerPoints > dealerPoints) {
                 playerScore++;
-                System.out.println("\nВы выиграли раунд! Счет " + playerScore + ":" + dealerScore + " в вашу пользу.");
-            } else if (dScore > pScore) {
+                System.out.println("\nВы выиграли раунд! Счет "
+                        + playerScore + ":" + dealerScore + " в вашу пользу.");
+            } else if (dealerPoints > playerPoints) {
                 dealerScore++;
-                System.out.println("\nДилер выиграл раунд! Счет " + playerScore + ":" + dealerScore + ".");
+                System.out.println("\nДилер выиграл раунд! Счет "
+                        + playerScore + ":" + dealerScore + ".");
             } else {
                 System.out.println("\nНичья! Счет " + playerScore + ":" + dealerScore + ".");
             }
         }
     }
 
-    /**
-     * Prints current state between rounds.
-     * @param hideDealerCard contains info about hidden dealer's card.
-     */
     private void printTableState(boolean hideDealerCard) {
         System.out.println("    Ваши карты: " + player.getFormattedHand());
         if (hideDealerCard) {
