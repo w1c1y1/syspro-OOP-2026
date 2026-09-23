@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * Class for player representation.
+ */
 public class Player {
     protected List<Card> hand = new ArrayList<>();
 
@@ -35,7 +38,7 @@ public class Player {
         int aces = 0;
         for (Card card : hand) {
             total += card.getValue().getPoints();
-            if (card.getValue() == ValueToSuit.ACE) {
+            if (card.getValue() == Rank.ACE) {
                 aces++;
             }
         }
@@ -71,7 +74,7 @@ public class Player {
         int aces = 0;
         for (Card card : hand) {
             total += card.getValue().getPoints();
-            if (card.getValue() == ValueToSuit.ACE) {
+            if (card.getValue() == Rank.ACE) {
                 aces++;
             }
         }
@@ -85,7 +88,7 @@ public class Player {
 
         List<String> cardStrings = new ArrayList<>();
         for (Card card : hand) {
-            if (card.getValue() == ValueToSuit.ACE && reducedAces > 0) {
+            if (card.getValue() == Rank.ACE && reducedAces > 0) {
                 cardStrings.add(card.toStringWithPoints(1));
                 reducedAces--;
             } else {

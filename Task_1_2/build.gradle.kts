@@ -28,3 +28,9 @@ tasks.test {
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(24))
+    }
+}

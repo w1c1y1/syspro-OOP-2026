@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 /**
  * Class that imitates game. It runs dealer and player and read/write input/output in console.
  */
@@ -12,12 +11,20 @@ public class Engine {
     private int dealerScore;
     private int roundNumber;
 
-
     /**
-     * Sets all objects to start and all counters to start.
+     * Sets standard game engine with default shuffled deck.
      */
     public Engine() {
-        this.deck = new Deck();
+        this(new Deck());
+    }
+
+    /**
+     * Sets game engine with a pre-formed or custom deck (e.g. for deterministic testing).
+     *
+     * @param deck Custom Deck instance with pre-configured card sequence.
+     */
+    public Engine(Deck deck) {
+        this.deck = deck;
         this.player = new Player();
         this.dealer = new Dealer();
         this.playerScore = 0;
@@ -29,7 +36,14 @@ public class Engine {
      * Starts/ends the game.
      */
     public void start() {
-        Scanner scanner = new Scanner(System.in);
+        start(new Scanner(System.in));
+    }
+
+    /**
+     * Starts/ends the game with custom scanner.
+     * @param scanner scanner that scans input.
+     */
+    public void start(Scanner scanner) {
         System.out.println("Добро пожаловать в Блэкджек!");
 
         while (true) {
