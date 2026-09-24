@@ -146,6 +146,6 @@ class BlackJackTest {
             deck.pickCard();
         }
         Card extraCard = deck.pickCard();
-        Assertions.assertNotNull(extraCard);
+        Assertions.assertInstanceOf(Card.class, extraCard);
     }
 }
