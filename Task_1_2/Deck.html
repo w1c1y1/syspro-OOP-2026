@@ -102,9 +102,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Deck</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Puts flag isCustom to false and initiates random deck.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.List)" class="member-name-link">Deck</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in Unnamed Package">Card</a>&gt;&nbsp;customDeck)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Puts flag isCustom to true and makes current deck given pre-formed deck.</div>
+</div>
 </div>
 </section>
 </li>
@@ -121,10 +125,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in Unnamed Package">Card</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pickCard()" class="member-name-link">pickCard</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Picks last card from deck.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shuffle()" class="member-name-link">shuffle</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Shuffles array of cards.</div>
+</div>
 </div>
 </div>
 </div>
@@ -146,12 +154,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Deck</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Deck</span>()</div>
+<div class="block">Puts flag isCustom to false and initiates random deck.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List)">
 <h3>Deck</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Deck</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in Unnamed Package">Card</a>&gt;&nbsp;customDeck)</span></div>
+<div class="block">Puts flag isCustom to true and makes current deck given pre-formed deck.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>customDeck</code> - pre-formed deck</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -166,12 +180,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="shuffle()">
 <h3>shuffle</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">shuffle</span>()</div>
+<div class="block">Shuffles array of cards.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="pickCard()">
 <h3>pickCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in Unnamed Package">Card</a></span>&nbsp;<span class="element-name">pickCard</span>()</div>
+<div class="block">Picks last card from deck. If pre-ordered deck is empty - kills main.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>last card from deck.</dd>
+</dl>
 </section>
 </li>
 </ul>
