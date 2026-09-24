@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+
+/**
+ * This class implements blackjack game.
+ */
 public class Engine {
     private final Deck deck;
     private final Player player;
@@ -25,6 +29,10 @@ public class Engine {
         start(new Scanner(System.in));
     }
 
+    /**
+     * Prints greetings and starts the game.
+     * @param scanner used to read player's input.
+     */
     public void start(Scanner scanner) {
         System.out.println("Добро пожаловать в Блэкджек!");
 
@@ -43,6 +51,10 @@ public class Engine {
         }
     }
 
+    /**
+     * Method for simulating one round.
+     * @param scanner used to read player's input.
+     */
     private void playRound(Scanner scanner) {
         player.clearHand();
         dealer.clearHand();
@@ -140,6 +152,10 @@ public class Engine {
         }
     }
 
+    /**
+     * Method for printing current player's and dealer's hand.
+     * @param hideDealerCard value and suit of hidden's card.
+     */
     private void printTableState(boolean hideDealerCard) {
         System.out.println("    Ваши карты: " + player.getFormattedHand());
         if (hideDealerCard) {
