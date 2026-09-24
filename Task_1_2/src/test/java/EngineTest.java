@@ -35,8 +35,8 @@ class EngineTest {
     @Test
     void testBlckJackTie() {
         List<Card> cards = List.of(
-                new Card(Rank.NINE, Suits.DIAMONDS),
-                new Card(Rank.NINE, Suits.SPADES),
+                new Card(Rank.ACE, Suits.DIAMONDS),
+                new Card(Rank.ACE, Suits.SPADES),
                 new Card(Rank.TEN, Suits.HEARTS),
                 new Card(Rank.TEN, Suits.CLUBS)
         );
