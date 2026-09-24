@@ -148,4 +148,20 @@ public class Engine {
             System.out.println("    Карты дилера: " + dealer.getFormattedHand());
         }
     }
+
+    /**
+     * Getter for tests.
+     * @return player's score.
+     */
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    /**
+     * Getter for tests.
+     * @return dealer's score.
+     */
+    public int getDealerScore() {
+        return dealerScore;
+    }
 }

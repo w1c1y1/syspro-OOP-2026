@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class implements deck. Initiates and shuffles it.
+ */
 public class Deck {
     private List<Card> deck;
     private final boolean isCustom;
