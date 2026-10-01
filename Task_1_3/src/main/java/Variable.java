@@ -30,7 +30,7 @@ public class Variable extends Expression {
     }
 
     /**
-     * Returns one, by rules of diff
+     * Returns one, by rules of diff.
      * @param var we need to diff.
      * @return derivative on variable.
      */

@@ -8,8 +8,7 @@ public class Main {
                 char c = content.charAt(i);
                 if (c == '(') {
                     balance++;
-                }
-                else if (c == ')') {
+                } else if (c == ')') {
                     balance--;
                 }
                 else if (balance == 0) {
