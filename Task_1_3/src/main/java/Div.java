@@ -2,7 +2,8 @@
  * Implements "Div" type of expressions.
  */
 public class Div extends Expression {
-    public Expression left, right;
+    public Expression left;
+    public Expression right;
 
     /**
      * Sets fields of object.

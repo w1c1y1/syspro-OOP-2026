@@ -2,7 +2,8 @@
  * Implements "Mul" type of expression.
  */
 public class Mul extends Expression {
-    public Expression left, right;
+    public Expression left;
+    public Expression right;
 
     /**
      * Sets fields of an object.

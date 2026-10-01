@@ -2,7 +2,8 @@
  * Implements "Sub" type of expression.
  */
 public class Sub extends Expression {
-    public Expression left, right;
+    public Expression left;
+    public Expression right;
 
     /**
      * Writes part of an expression.

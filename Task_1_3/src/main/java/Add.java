@@ -3,7 +3,8 @@
  */
 
 public class Add extends Expression {
-    public Expression left, right;
+    public Expression left;
+    public Expression right;
 
     /**
      * Making add type expression.
