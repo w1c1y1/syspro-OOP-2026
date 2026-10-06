@@ -7,7 +7,8 @@ public class Div extends Expression {
 
     /**
      * Sets fields of object.
-     * @param left part of expression.
+     *
+     * @param left  part of expression.
      * @param right part of expression.
      */
     public Div(Expression left, Expression right) {
@@ -17,6 +18,7 @@ public class Div extends Expression {
 
     /**
      * Evaluates expression.
+     *
      * @param values we need to evaluate.
      * @return result of div.
      */
@@ -27,6 +29,7 @@ public class Div extends Expression {
 
     /**
      * Counts derivative by rule.
+     *
      * @param var we need to diff.
      * @return result by rule.
      */
@@ -42,6 +45,7 @@ public class Div extends Expression {
 
     /**
      * String format of expression.
+     *
      * @return string in brackets.
      */
     @Override
@@ -51,7 +55,8 @@ public class Div extends Expression {
 
     /**
      * Checks equality to other expression.
-     * @param obj   the reference object with which to compare.
+     *
+     * @param obj the reference object with which to compare.
      * @return yes or no.
      */
     @Override

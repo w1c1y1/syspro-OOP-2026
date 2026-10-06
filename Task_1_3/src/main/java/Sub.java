@@ -7,6 +7,7 @@ public class Sub extends Expression {
 
     /**
      * Writes part of an expression.
+     *
      * @param left  left part of an expression.
      * @param right right part of an expression.
      */
@@ -17,6 +18,7 @@ public class Sub extends Expression {
 
     /**
      * Evaluates an expression.
+     *
      * @param values evaluates expression.
      * @return int of an expression.
      */
@@ -27,6 +29,7 @@ public class Sub extends Expression {
 
     /**
      * Counts diff of an expression.
+     *
      * @param var we need to diff.
      * @return new diff expression.
      */
@@ -37,6 +40,7 @@ public class Sub extends Expression {
 
     /**
      * Makes string out of expression.
+     *
      * @return string with expression.
      */
     @Override
@@ -46,7 +50,8 @@ public class Sub extends Expression {
 
     /**
      * Is this expression equals other.
-     * @param obj   the reference object with which to compare.
+     *
+     * @param obj the reference object with which to compare.
      * @return is equal or not.
      */
     @Override

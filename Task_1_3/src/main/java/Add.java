@@ -8,7 +8,8 @@ public class Add extends Expression {
 
     /**
      * Making add type expression.
-     * @param left left part of an expression.
+     *
+     * @param left  left part of an expression.
      * @param right right part of an expression.
      */
     public Add(Expression left, Expression right) {
@@ -18,6 +19,7 @@ public class Add extends Expression {
 
     /**
      * Evaluates expression.
+     *
      * @param values we need to evaluate.
      * @return int eval of an expression.
      */
@@ -28,7 +30,8 @@ public class Add extends Expression {
 
     /**
      * Gets derivative of an expression.
-     * @param var   variable we need to diff.
+     *
+     * @param var variable we need to diff.
      * @return new "Add" expression.
      */
     @Override
@@ -38,6 +41,7 @@ public class Add extends Expression {
 
     /**
      * Makes string from "Add" type expression.
+     *
      * @return expression in string type.
      */
     @Override
@@ -47,8 +51,9 @@ public class Add extends Expression {
 
     /**
      * Checks is object the same type as referens, if yes - are they equal.
-     * @param obj   the reference object with which to compare.
-     * @return  is expressions equal.
+     *
+     * @param obj the reference object with which to compare.
+     * @return is expressions equal.
      */
     @Override
     public boolean equals(Object obj) {

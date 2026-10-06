@@ -6,6 +6,7 @@ public class Number extends Expression {
 
     /**
      * Sets value to public field.
+     *
      * @param value value of number.
      */
     public Number(int value) {
@@ -14,6 +15,7 @@ public class Number extends Expression {
 
     /**
      * Eval method, just return value.
+     *
      * @param values value of number.
      * @return value of number.
      */
@@ -24,6 +26,7 @@ public class Number extends Expression {
 
     /**
      * Always zero, so just return it.
+     *
      * @param var number we need to diff.
      * @return zero, as expected.
      */
@@ -34,6 +37,7 @@ public class Number extends Expression {
 
     /**
      * Just int to string.
+     *
      * @return string.
      */
     @Override
@@ -43,7 +47,8 @@ public class Number extends Expression {
 
     /**
      * Is value of other number equals this one.
-     * @param obj   the reference object with which to compare.
+     *
+     * @param obj the reference object with which to compare.
      * @return yes or no.
      */
     @Override
