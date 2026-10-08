@@ -9,6 +9,16 @@ public class VariableTest {
         Assertions.assertEquals(42, var.eval("y=10; x=42; z=5"));
     }
 
+
+    @Test
+    void testEvalThrowsExceptionWhenVariableNotFound() {
+        Variable var = new Variable("x");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            var.eval("y=10; z=5");
+        });
+    }
+
+
     @Test
     void testDerivativeSameVariable() {
         Variable var = new Variable("x");

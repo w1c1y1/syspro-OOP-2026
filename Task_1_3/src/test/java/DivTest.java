@@ -28,12 +28,23 @@ public class DivTest {
     }
 
     @Test
-    void testEquals() {
+    void testEqualsEqual() {
         Div div1 = new Div(new Number(10), new Number(2));
         Div div2 = new Div(new Number(10), new Number(2));
-        Div div3 = new Div(new Number(2), new Number(10));
+        Assertions.assertTrue(div1.equals(div2));
+    }
 
-        Assertions.assertEquals(div1, div2);
-        Assertions.assertNotEquals(div1, div3);
+    @Test
+    void testEqualsNotEqual() {
+        Div div1 = new Div(new Number(10), new Number(2));
+        Div div2 = new Div(new Number(2), new Number(10));
+        Assertions.assertFalse(div1.equals(div2));
+    }
+
+    @Test
+    void testEqualsDifferentInstance() {
+        Div div1 = new Div(new Number(10), new Number(2));
+        String div2 = "Expression";
+        Assertions.assertFalse(div1.equals(div2));
     }
 }

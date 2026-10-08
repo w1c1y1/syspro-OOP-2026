@@ -1,4 +1,4 @@
-public class Main {
+public class Parser {
     public static Expression parse(String string) {
         string = string.trim();
         if (string.startsWith("(") && string.endsWith(")")) {
@@ -10,8 +10,7 @@ public class Main {
                     balance++;
                 } else if (c == ')') {
                     balance--;
-                }
-                else if (balance == 0) {
+                } else if (balance == 0) {
                     if (c == '+' || c == '-' || c == '*' || c == '/') {
                         Expression left = parse(content.substring(0, i));
                         Expression right = parse(content.substring(i + 1));
@@ -30,7 +29,6 @@ public class Main {
                 }
             }
         }
-
         try {
             return new Number(Integer.parseInt(string));
         } catch (NumberFormatException e) {

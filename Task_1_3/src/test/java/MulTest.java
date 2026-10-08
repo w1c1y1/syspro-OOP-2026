@@ -26,12 +26,23 @@ public class MulTest {
     }
 
     @Test
-    void testEquals() {
+    void testEqualsEqual() {
         Mul mul1 = new Mul(new Variable("x"), new Variable("y"));
         Mul mul2 = new Mul(new Variable("x"), new Variable("y"));
-        Mul mul3 = new Mul(new Variable("y"), new Variable("x"));
+        Assertions.assertTrue(mul1.equals(mul2));
+    }
 
-        Assertions.assertEquals(mul1, mul2);
-        Assertions.assertNotEquals(mul1, mul3);
+    @Test
+    void testEqualsNotEqual() {
+        Mul mul1 = new Mul(new Variable("x"), new Variable("y"));
+        Mul mul2 = new Mul(new Variable("y"), new Variable("y"));
+        Assertions.assertFalse(mul1.equals(mul2));
+    }
+
+    @Test
+    void testEqualsDifferentInstance() {
+        Mul mul1 = new Mul(new Variable("x"), new Variable("y"));
+        String mul2 = "Expression";
+        Assertions.assertFalse(mul1.equals(mul2));
     }
 }

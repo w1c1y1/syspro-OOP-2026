@@ -23,12 +23,23 @@ public class AddTest {
     }
 
     @Test
-    void testEquals() {
+    void testEqualsEqual() {
         Add add1 = new Add(new Number(1), new Number(2));
         Add add2 = new Add(new Number(1), new Number(2));
-        Add add3 = new Add(new Number(2), new Number(1));
+        Assertions.assertTrue(add1.equals(add2));
+    }
 
-        Assertions.assertEquals(add1, add2);
-        Assertions.assertNotEquals(add1, add3);
+    @Test
+    void testEqualsNotEqual() {
+        Add add1 = new Add(new Number(1), new Number(2));
+        Add add2 = new Add(new Number(1), new Number(3));
+        Assertions.assertFalse(add1.equals(add2));
+    }
+
+    @Test
+    void testEqualsDifferentInstance() {
+        Add add1 = new Add(new Number(1), new Number(2));
+        String add2 = "Expression";
+        Assertions.assertFalse(add1.equals(add2));
     }
 }

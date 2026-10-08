@@ -27,9 +27,20 @@ public class NumberTest {
     void testEquals() {
         Number testNumber1 = new Number(5);
         Number testNumber2 = new Number(5);
-        Number testNumber3 = new Number(10);
-
         Assertions.assertEquals(testNumber1, testNumber2);
-        Assertions.assertNotEquals(testNumber1, testNumber3);
+    }
+
+    @Test
+    void testEqualsNotEqual() {
+        Number testNumber1 = new Number(5);
+        Number testNumber2 = new Number(6);
+        Assertions.assertNotEquals(testNumber1, testNumber2);
+    }
+
+    @Test
+    void testEqualsDifferentInstance() {
+        Number testNumber1 = new Number(5);
+        String testNumber2 = "Expression";
+        Assertions.assertFalse(testNumber1.equals(testNumber2));
     }
 }

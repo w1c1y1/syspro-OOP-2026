@@ -23,12 +23,24 @@ public class SubTest {
     }
 
     @Test
-    void testEquals() {
+    void testEqualsEqual() {
         Sub sub1 = new Sub(new Variable("x"), new Number(1));
         Sub sub2 = new Sub(new Variable("x"), new Number(1));
-        Sub sub3 = new Sub(new Number(1), new Variable("x"));
-
         Assertions.assertEquals(sub1, sub2);
-        Assertions.assertNotEquals(sub1, sub3);
+    }
+
+
+    @Test
+    void testEqualsNotEqual() {
+        Sub sub1 = new Sub(new Variable("x"), new Number(1));
+        Sub sub2 = new Sub(new Number(1), new Variable("x"));
+        Assertions.assertNotEquals(sub1, sub2);
+    }
+
+    @Test
+    void testEqualsDifferentInstance() {
+        Sub sub1 = new Sub(new Variable("x"), new Number(1));
+        String sub2 = "Expression";
+        Assertions.assertFalse(sub1.equals(sub2));
     }
 }
