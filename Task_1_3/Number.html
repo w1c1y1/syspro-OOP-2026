@@ -125,22 +125,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in Unnamed Package">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#derivative(java.lang.String)" class="member-name-link">derivative</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;var)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Always zero, so just return it.</div>
+<div class="block">Gets derivative of a given expression.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Is value of other number equals this one.</div>
+<div class="block">Compares two given objects.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eval(java.lang.String)" class="member-name-link">eval</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;values)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Eval method, just return value.</div>
+<div class="block">Method for evaluation of an expression.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Just int to string.</div>
+<div class="block">Makes string out of given expression.</div>
 </div>
 </div>
 </div>
@@ -199,14 +199,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="eval(java.lang.String)">
 <h3>eval</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;values)</span></div>
-<div class="block">Eval method, just return value.</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#eval(java.lang.String)">Expression</a></code></span></div>
+<div class="block">Method for evaluation of an expression.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#eval(java.lang.String)">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in Unnamed Package">Expression</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>values</code> - value of number.</dd>
+<dd><code>values</code> - we need to evaluate.</dd>
 <dt>Returns:</dt>
-<dd>value of number.</dd>
+<dd>value of a given expression.</dd>
 </dl>
 </section>
 </li>
@@ -214,14 +215,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in Unnamed Package">Expression</a></span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;var)</span></div>
-<div class="block">Always zero, so just return it.</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#derivative(java.lang.String)">Expression</a></code></span></div>
+<div class="block">Gets derivative of a given expression.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#derivative(java.lang.String)">derivative</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in Unnamed Package">Expression</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>var</code> - number we need to diff.</dd>
+<dd><code>var</code> - variable/number we need to diff.</dd>
 <dt>Returns:</dt>
-<dd>zero, as expected.</dd>
+<dd>derivative of a given var or val by rules.</dd>
 </dl>
 </section>
 </li>
@@ -229,12 +231,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
-<div class="block">Just int to string.</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#toString()">Expression</a></code></span></div>
+<div class="block">Makes string out of given expression.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in Unnamed Package">Expression</a></code></dd>
 <dt>Returns:</dt>
-<dd>string.</dd>
+<dd>string view of an expression.</dd>
 </dl>
 </section>
 </li>
@@ -242,14 +245,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
-<div class="block">Is value of other number equals this one.</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#equals(java.lang.Object)">Expression</a></code></span></div>
+<div class="block">Compares two given objects.</div>
 <dl class="notes">
-<dt>Overrides:</dt>
+<dt>Specified by:</dt>
 <dd><code><a href="Expression.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in Unnamed Package">Expression</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>obj</code> - the reference object with which to compare.</dd>
 <dt>Returns:</dt>
-<dd>yes or no.</dd>
+<dd>true or false, if objects equal/not equal.</dd>
 </dl>
 </section>
 </li>
