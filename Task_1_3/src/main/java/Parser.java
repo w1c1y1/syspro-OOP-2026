@@ -1,4 +1,12 @@
+/**
+ * Class to parse expression string and make Expression from it.
+ */
 public class Parser {
+    /**
+     * Gets string as arg and returns Number or Variable.
+     * @param string we need to parse.
+     * @return new Number or Variable.
+     */
     public static Expression parse(String string) {
         string = string.trim();
         if (string.startsWith("(") && string.endsWith(")")) {

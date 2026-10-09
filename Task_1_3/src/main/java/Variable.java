@@ -6,7 +6,6 @@ public class Variable extends Expression {
 
     /**
      * Just sets var's name.
-     *
      * @param name of variable.
      */
     public Variable(String name) {
@@ -14,10 +13,6 @@ public class Variable extends Expression {
     }
 
     /**
-     * Evals expression with given vars and vals.
-     *
-     * @param values of vars.
-     * @return int.
      * @throws IllegalArgumentException if val not given.
      */
     @Override
@@ -32,12 +27,7 @@ public class Variable extends Expression {
         throw new IllegalArgumentException("Illegal argument");
     }
 
-    /**
-     * Returns one, by rules of diff.
-     *
-     * @param var we need to diff.
-     * @return derivative on variable.
-     */
+
     @Override
     public Expression derivative(String var) {
         if (this.name.equals(var)) {
@@ -46,22 +36,13 @@ public class Variable extends Expression {
         return new Number(0);
     }
 
-    /**
-     * Returns name of variable.
-     *
-     * @return name of var in string format.
-     */
+
     @Override
     public String toString() {
         return name;
     }
 
-    /**
-     * Checks if var equals other var.
-     *
-     * @param obj the reference object with which to compare.
-     * @return yes or no.
-     */
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Variable) {

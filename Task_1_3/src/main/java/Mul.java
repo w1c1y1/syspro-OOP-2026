@@ -7,7 +7,6 @@ public class Mul extends Expression {
 
     /**
      * Sets fields of an object.
-     *
      * @param left  left part of an expression.
      * @param right right part of an expression.
      */
@@ -16,23 +15,13 @@ public class Mul extends Expression {
         this.right = right;
     }
 
-    /**
-     * Evaluates expression.
-     *
-     * @param values we need to eval.
-     * @return value of expression.
-     */
+
     @Override
     public int eval(String values) {
         return left.eval(values) * right.eval(values);
     }
 
-    /**
-     * Counts derivative of an expression.
-     *
-     * @param var we need to diff.
-     * @return new expression.
-     */
+
     @Override
     public Expression derivative(String var) {
         return new Add(
@@ -41,22 +30,13 @@ public class Mul extends Expression {
         );
     }
 
-    /**
-     * Returns string with brackets.
-     *
-     * @return string with brackets.
-     */
+
     @Override
     public String toString() {
         return "(" + left.toString() + "*" + right.toString() + ")";
     }
 
-    /**
-     * Is expressions equal or no.
-     *
-     * @param obj the reference object with which to compare.
-     * @return yes or no.
-     */
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Mul) {
