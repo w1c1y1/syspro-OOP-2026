@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AdjacencyListTest extends GraphTest {
     @Override
-    protected Graph createGraph() {
+    public Graph createGraph() {
         return new AdjacencyList();
     }
 

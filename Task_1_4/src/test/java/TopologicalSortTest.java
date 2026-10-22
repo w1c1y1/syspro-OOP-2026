@@ -4,9 +4,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Tests for {@link TopologicalSort}.
- */
+
 public class TopologicalSortTest {
     @Test
     void sortsDirectedAcyclicGraph() {

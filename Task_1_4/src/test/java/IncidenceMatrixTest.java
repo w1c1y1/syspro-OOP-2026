@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class IncidenceMatrixTest extends GraphTest {
     @Override
-    protected Graph createGraph() {
+    public Graph createGraph() {
         return new IncidenceMatrix();
     }
 

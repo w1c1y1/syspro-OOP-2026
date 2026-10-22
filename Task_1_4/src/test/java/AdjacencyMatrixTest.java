@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AdjacencyMatrixTest extends GraphTest {
     @Override
-    protected Graph createGraph() {
+    public Graph createGraph() {
         return new AdjacencyMatrix(2);
     }
 

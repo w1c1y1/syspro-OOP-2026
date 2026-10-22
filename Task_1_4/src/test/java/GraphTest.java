@@ -1,12 +1,12 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.UncheckedIOException;
+import java.io.*;
+import java.nio.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +14,7 @@ abstract class GraphTest {
     @TempDir
     Path tempDir;
 
-    protected abstract Graph createGraph();
+    abstract Graph createGraph();
 
     @Test
     void testAddVertex() {
