@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * Graph interface representing a directed graph.
+ */
 public interface Graph {
 
     /**

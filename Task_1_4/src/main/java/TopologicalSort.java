@@ -14,7 +14,9 @@ public class TopologicalSort {
      */
     public List<Integer> topologicalSort(Graph graph) {
         Map<Integer, Integer> inDegree = new HashMap<>();
-        for (int v : graph.getVertices()) inDegree.put(v, 0);
+        for (int v : graph.getVertices()) {
+            inDegree.put(v, 0);
+        }
         for (int v : graph.getVertices()) {
             for (int n : graph.getNeighbors(v)) {
                 inDegree.merge(n, 1, Integer::sum);
@@ -22,7 +24,9 @@ public class TopologicalSort {
         }
         Queue<Integer> queue = new ArrayDeque<>();
         for (Map.Entry<Integer, Integer> e : inDegree.entrySet()) {
-            if (e.getValue() == 0) queue.offer(e.getKey());
+            if (e.getValue() == 0) {
+                queue.offer(e.getKey());
+            }
         }
         List<Integer> result = new ArrayList<>();
         while (!queue.isEmpty()) {
@@ -30,10 +34,14 @@ public class TopologicalSort {
             result.add(v);
             for (int n : graph.getNeighbors(v)) {
                 int deg = inDegree.merge(n, -1, Integer::sum);
-                if (deg == 0) queue.offer(n);
+                if (deg == 0) {
+                    queue.offer(n);
+                }
             }
         }
-        if (result.size() != graph.getVertexCount()) return new ArrayList<>();
+        if (result.size() != graph.getVertexCount()) {
+            return new ArrayList<>();
+        }
         return result;
     }
 }

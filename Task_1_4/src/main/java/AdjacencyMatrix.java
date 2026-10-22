@@ -1,6 +1,9 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * Adjacency matrix implementation of a directed graph.
+ */
 public class AdjacencyMatrix implements Graph {
     private int[][] matrix;
     private boolean[] vertices;
@@ -8,6 +11,11 @@ public class AdjacencyMatrix implements Graph {
     private int edgeCount;
     private int capacity;
 
+    /**
+     * Constructs an adjacency matrix with the given initial capacity.
+     *
+     * @param capacity initial capacity.
+     */
     public AdjacencyMatrix(int capacity) {
         this.capacity = Math.max(1, capacity);
         this.matrix = new int[this.capacity][this.capacity];
@@ -17,7 +25,9 @@ public class AdjacencyMatrix implements Graph {
     }
 
     private void ensureCapacity(int minCapacity) {
-        if (minCapacity <= capacity) return;
+        if (minCapacity <= capacity) {
+            return;
+        }
         int newCapacity = Math.max(minCapacity, capacity * 2);
         int[][] newMatrix = new int[newCapacity][newCapacity];
         boolean[] newVertices = new boolean[newCapacity];
@@ -32,7 +42,9 @@ public class AdjacencyMatrix implements Graph {
 
     @Override
     public void addVertex(int vertex) {
-        if (vertex < 0) return;
+        if (vertex < 0) {
+            return;
+        }
         ensureCapacity(vertex + 1);
         if (!vertices[vertex]) {
             vertices[vertex] = true;
@@ -42,12 +54,18 @@ public class AdjacencyMatrix implements Graph {
 
     @Override
     public void removeVertex(int vertex) {
-        if (vertex < 0 || vertex >= capacity || !vertices[vertex]) return;
+        if (vertex < 0 || vertex >= capacity || !vertices[vertex]) {
+            return;
+        }
         vertices[vertex] = false;
         vertexCount--;
         for (int i = 0; i < capacity; i++) {
-            if (matrix[vertex][i] == 1) edgeCount--;
-            if (matrix[i][vertex] == 1 && i != vertex) edgeCount--;
+            if (matrix[vertex][i] == 1) {
+                edgeCount--;
+            }
+            if (matrix[i][vertex] == 1 && i != vertex) {
+                edgeCount--;
+            }
             matrix[vertex][i] = 0;
             matrix[i][vertex] = 0;
         }
@@ -55,15 +73,21 @@ public class AdjacencyMatrix implements Graph {
 
     @Override
     public void addEdge(int from, int to) {
-        if (from < 0 || from >= capacity || to < 0 || to >= capacity) return;
-        if (!vertices[from] || !vertices[to] || matrix[from][to] == 1) return;
+        if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
+            return;
+        }
+        if (!vertices[from] || !vertices[to] || matrix[from][to] == 1) {
+            return;
+        }
         matrix[from][to] = 1;
         edgeCount++;
     }
 
     @Override
     public void removeEdge(int from, int to) {
-        if (from < 0 || from >= capacity || to < 0 || to >= capacity) return;
+        if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
+            return;
+        }
         if (matrix[from][to] == 1) {
             matrix[from][to] = 0;
             edgeCount--;
@@ -73,9 +97,13 @@ public class AdjacencyMatrix implements Graph {
     @Override
     public List<Integer> getNeighbors(int vertex) {
         List<Integer> result = new ArrayList<>();
-        if (vertex < 0 || vertex >= capacity || !vertices[vertex]) return result;
+        if (vertex < 0 || vertex >= capacity || !vertices[vertex]) {
+            return result;
+        }
         for (int i = 0; i < capacity; i++) {
-            if (matrix[vertex][i] == 1) result.add(i);
+            if (matrix[vertex][i] == 1) {
+                result.add(i);
+            }
         }
         return result;
     }
@@ -83,7 +111,11 @@ public class AdjacencyMatrix implements Graph {
     @Override
     public List<Integer> getVertices() {
         List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < capacity; i++) if (vertices[i]) result.add(i);
+        for (int i = 0; i < capacity; i++) {
+            if (vertices[i]) {
+                result.add(i);
+            }
+        }
         return result;
     }
 
@@ -117,8 +149,12 @@ public class AdjacencyMatrix implements Graph {
             edgeCount = 0;
             int v = sc.nextInt();
             int e = sc.nextInt();
-            for (int i = 0; i < v; i++) addVertex(sc.nextInt());
-            for (int i = 0; i < e; i++) addEdge(sc.nextInt(), sc.nextInt());
+            for (int i = 0; i < v; i++) {
+                addVertex(sc.nextInt());
+            }
+            for (int i = 0; i < e; i++) {
+                addEdge(sc.nextInt(), sc.nextInt());
+            }
         } catch (FileNotFoundException ex) {
             throw new UncheckedIOException(ex);
         }
@@ -127,35 +163,57 @@ public class AdjacencyMatrix implements Graph {
     @Override
     public Graph copy() {
         AdjacencyMatrix copy = new AdjacencyMatrix(capacity);
-        for (int v : getVertices()) copy.addVertex(v);
-        for (int v : getVertices())
-            for (int n : getNeighbors(v)) copy.addEdge(v, n);
+        for (int v : getVertices()) {
+            copy.addVertex(v);
+        }
+        for (int v : getVertices()) {
+            for (int n : getNeighbors(v)) {
+                copy.addEdge(v, n);
+            }
+        }
         return copy;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Graph)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Graph)) {
+            return false;
+        }
         Graph other = (Graph) obj;
-        if (getVertexCount() != other.getVertexCount()) return false;
-        if (getEdgeCount() != other.getEdgeCount()) return false;
+        if (getVertexCount() != other.getVertexCount()) {
+            return false;
+        }
+        if (getEdgeCount() != other.getEdgeCount()) {
+            return false;
+        }
         for (int v : getVertices()) {
-            if (!other.hasVertex(v)) return false;
+            if (!other.hasVertex(v)) {
+                return false;
+            }
             List<Integer> neighbors = getNeighbors(v);
             List<Integer> otherNeighbors = other.getNeighbors(v);
-            if (neighbors.size() != otherNeighbors.size()) return false;
-            for (int n : neighbors) if (!other.hasEdge(v, n)) return false;
+            if (neighbors.size() != otherNeighbors.size()) {
+                return false;
+            }
+            for (int n : neighbors) {
+                if (!other.hasEdge(v, n)) {
+                    return false;
+                }
+            }
         }
         return true;
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("AdjacencyMatrix:\n");
         for (int i = 0; i < capacity; i++) {
-            for (int j = 0; j < capacity; j++) sb.append(matrix[i][j]).append(" ");
+            for (int j = 0; j < capacity; j++) {
+                sb.append(matrix[i][j]).append(" ");
+            }
             sb.append("\n");
         }
         return sb.toString();
