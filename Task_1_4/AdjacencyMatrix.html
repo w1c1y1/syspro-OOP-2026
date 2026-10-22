@@ -69,7 +69,9 @@ loadScripts(document, 'script');</script>
 <h1 title="Class AdjacencyMatrix" class="title">Class AdjacencyMatrix</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="AbstractGraph.html" title="class in Unnamed Package">AbstractGraph</a>
 <div class="inheritance">AdjacencyMatrix</div>
+</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
@@ -78,8 +80,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AdjacencyMatrix</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></span></div>
+<span class="extends-implements">extends <a href="AbstractGraph.html" title="class in Unnamed Package">AbstractGraph</a></span></div>
 <div class="block">Adjacency matrix implementation of a directed graph.</div>
 </section>
 <section class="summary">
@@ -122,48 +123,40 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block">Adds a vertex to the graph.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#copy()" class="member-name-link">copy</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createEmpty()" class="member-name-link">createEmpty</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Creates an independent copy of the graph.</div>
+<div class="block">Creates empty graph.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdgeCount()" class="member-name-link">getEdgeCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdgeCount()" class="member-name-link">getEdgeCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the number of edges in the graph.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbors(int)" class="member-name-link">getNeighbors</a><wbr>(int&nbsp;vertex)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbors(int)" class="member-name-link">getNeighbors</a><wbr>(int&nbsp;vertex)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the neighbors of the given vertex.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertexCount()" class="member-name-link">getVertexCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertexCount()" class="member-name-link">getVertexCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the number of vertices in the graph.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertices()" class="member-name-link">getVertices</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertices()" class="member-name-link">getVertices</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns all vertices of the graph.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEdge(int,int)" class="member-name-link">hasEdge</a><wbr>(int&nbsp;from,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEdge(int,int)" class="member-name-link">hasEdge</a><wbr>(int&nbsp;from,
  int&nbsp;to)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks whether an edge from one vertex to another exists.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasVertex(int)" class="member-name-link">hasVertex</a><wbr>(int&nbsp;vertex)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Checks whether the vertex belongs to the graph.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readFromFile(java.lang.String)" class="member-name-link">readFromFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasVertex(int)" class="member-name-link">hasVertex</a><wbr>(int&nbsp;vertex)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Replaces the content of the graph with the content of the file.</div>
+<div class="block">Checks whether the vertex belongs to the graph.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEdge(int,int)" class="member-name-link">removeEdge</a><wbr>(int&nbsp;from,
@@ -183,6 +176,9 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-AbstractGraph">Methods inherited from class&nbsp;<a href="AbstractGraph.html" title="class in Unnamed Package">AbstractGraph</a></h3>
+<code><a href="AbstractGraph.html#copy()">copy</a>, <a href="AbstractGraph.html#equals(java.lang.Object)">equals</a>, <a href="AbstractGraph.html#readFromFile(java.lang.String)">readFromFile</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -217,6 +213,20 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="createEmpty()">
+<h3>createEmpty</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Graph.html" title="interface in Unnamed Package">Graph</a></span>&nbsp;<span class="element-name">createEmpty</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractGraph.html#createEmpty()">AbstractGraph</a></code></span></div>
+<div class="block">Creates empty graph.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractGraph.html#createEmpty()">createEmpty</a></code>&nbsp;in class&nbsp;<code><a href="AbstractGraph.html" title="class in Unnamed Package">AbstractGraph</a></code></dd>
+<dt>Returns:</dt>
+<dd>empty graph.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="addVertex(int)">
 <h3>addVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(int&nbsp;vertex)</span></div>
@@ -224,8 +234,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block">Adds a vertex to the graph.
  If the vertex already exists, the graph is unchanged.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#addVertex(int)">addVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>vertex</code> - vertex to add.</dd>
 </dl>
@@ -240,8 +248,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
  incoming and outgoing, including self-loops.
  If the vertex does not exist, the graph is unchanged.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#removeVertex(int)">removeVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>vertex</code> - vertex to remove.</dd>
 </dl>
@@ -257,8 +263,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
  Self-loops are allowed.
  If the edge already exists, or endpoint does not exist, the graph is unchanged.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#addEdge(int,int)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>from</code> - start vertex.</dd>
 <dd><code>to</code> - end vertex.</dd>
@@ -274,8 +278,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block">Removes the directed edge between two vertices.
  If the edge does not exist, the graph is unchanged.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#removeEdge(int,int)">removeEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>from</code> - start vertex.</dd>
 <dd><code>to</code> - end vertex.</dd>
@@ -290,8 +292,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block">Returns the neighbors of the given vertex.
  If the vertex does not exist, returns an empty list.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#getNeighbors(int)">getNeighbors</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>vertex</code> - vertex which neighbors we want to get.</dd>
 <dt>Returns:</dt>
@@ -306,8 +306,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVertices()">Graph</a></code></span></div>
 <div class="block">Returns all vertices of the graph.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#getVertices()">getVertices</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Returns:</dt>
 <dd>list of vertices.</dd>
 </dl>
@@ -322,8 +320,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block">Checks whether an edge from one vertex to another exists.
  If either vertex does not exist, returns false.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#hasEdge(int,int)">hasEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>from</code> - start vertex.</dd>
 <dd><code>to</code> - end vertex.</dd>
@@ -339,8 +335,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#hasVertex(int)">Graph</a></code></span></div>
 <div class="block">Checks whether the vertex belongs to the graph.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#hasVertex(int)">hasVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>vertex</code> - vertex to check.</dd>
 <dt>Returns:</dt>
@@ -355,8 +349,6 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVertexCount()">Graph</a></code></span></div>
 <div class="block">Returns the number of vertices in the graph.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#getVertexCount()">getVertexCount</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Returns:</dt>
 <dd>vertex count.</dd>
 </dl>
@@ -369,52 +361,8 @@ implements <a href="Graph.html" title="interface in Unnamed Package">Graph</a></
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdgeCount()">Graph</a></code></span></div>
 <div class="block">Returns the number of edges in the graph.</div>
 <dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#getEdgeCount()">getEdgeCount</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
 <dt>Returns:</dt>
 <dd>edge count.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="readFromFile(java.lang.String)">
-<h3>readFromFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readFromFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#readFromFile(java.lang.String)">Graph</a></code></span></div>
-<div class="block">Replaces the content of the graph with the content of the file.
- File format: First line - two integers separated by space.
- First V (vertex count) and E (edge count),
- then V vertex (nonnegative int's),
- then 2*E pairs "from to" describing each edge.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#readFromFile(java.lang.String)">readFromFile</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>fileName</code> - path to the input file.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="copy()">
-<h3>copy</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Graph.html" title="interface in Unnamed Package">Graph</a></span>&nbsp;<span class="element-name">copy</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#copy()">Graph</a></code></span></div>
-<div class="block">Creates an independent copy of the graph.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Graph.html#copy()">copy</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in Unnamed Package">Graph</a></code></dd>
-<dt>Returns:</dt>
-<dd>new graph with the same vertices and edges.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="equals(java.lang.Object)">
-<h3>equals</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
 </dl>
 </section>
 </li>
