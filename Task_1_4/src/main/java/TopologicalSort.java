@@ -7,10 +7,11 @@ import java.util.*;
 public class TopologicalSort {
     /**
      * Takes graph as an argument and sorts it.
+     * If graph is impossible to sort, then returns empty list.
      *
      * @param graph we need to sort.
      *              Must be inherited from Graph interface.
-     * @return list of vertexes (integers) in sorted order.
+     * @return list of vertexes (integers) in sorted order or empty list.
      */
     public List<Integer> topologicalSort(Graph graph) {
         Map<Integer, Integer> inDegree = new HashMap<>();

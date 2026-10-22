@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Incidence matrix implementation of a directed graph.
  */
-public class IncidenceMatrix implements Graph {
+public class IncidenceMatrix extends AbstractGraph {
     private List<Integer> vertices;
     private Map<Integer, Integer> vertexToRow;
     private List<int[]> edges;
@@ -18,6 +18,11 @@ public class IncidenceMatrix implements Graph {
         this.vertexToRow = new HashMap<>();
         this.edges = new ArrayList<>();
         this.matrix = new ArrayList<>();
+    }
+
+    @Override
+    public Graph createEmpty() {
+        return new IncidenceMatrix();
     }
 
     @Override
@@ -144,71 +149,6 @@ public class IncidenceMatrix implements Graph {
     @Override
     public int getEdgeCount() {
         return edges.size();
-    }
-
-    @Override
-    public void readFromFile(String fileName) {
-        try (Scanner sc = new Scanner(new File(fileName))) {
-            vertices.clear();
-            vertexToRow.clear();
-            edges.clear();
-            matrix.clear();
-            int v = sc.nextInt();
-            int e = sc.nextInt();
-            for (int i = 0; i < v; i++) {
-                addVertex(sc.nextInt());
-            }
-            for (int i = 0; i < e; i++) {
-                addEdge(sc.nextInt(), sc.nextInt());
-            }
-        } catch (FileNotFoundException ex) {
-            throw new UncheckedIOException(ex);
-        }
-    }
-
-    @Override
-    public Graph copy() {
-        IncidenceMatrix copy = new IncidenceMatrix();
-        for (int v : vertices) {
-            copy.addVertex(v);
-        }
-        for (int[] e : edges) {
-            copy.addEdge(e[0], e[1]);
-        }
-        return copy;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Graph)) {
-            return false;
-        }
-        Graph other = (Graph) obj;
-        if (getVertexCount() != other.getVertexCount()) {
-            return false;
-        }
-        if (getEdgeCount() != other.getEdgeCount()) {
-            return false;
-        }
-        for (int v : vertices) {
-            if (!other.hasVertex(v)) {
-                return false;
-            }
-            List<Integer> neighbors = getNeighbors(v);
-            List<Integer> otherNeighbors = other.getNeighbors(v);
-            if (neighbors.size() != otherNeighbors.size()) {
-                return false;
-            }
-            for (int n : neighbors) {
-                if (!other.hasEdge(v, n)) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
     @Override

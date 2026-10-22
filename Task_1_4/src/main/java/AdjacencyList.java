@@ -1,16 +1,20 @@
 import java.util.*;
-import java.io.*;
 
 /**
  * Adjacency list implementation of a directed graph.
  */
-public class AdjacencyList implements Graph {
+public class AdjacencyList extends AbstractGraph {
     private Map<Integer, List<Integer>> adjacency;
     private int edgeCount;
 
     public AdjacencyList() {
         this.adjacency = new HashMap<>();
         this.edgeCount = 0;
+    }
+
+    @Override
+    public Graph createEmpty() {
+        return new AdjacencyList();
     }
 
     @Override
@@ -79,70 +83,6 @@ public class AdjacencyList implements Graph {
         return edgeCount;
     }
 
-    @Override
-    public void readFromFile(String fileName) {
-        try (Scanner sc = new Scanner(new File(fileName))) {
-            adjacency.clear();
-            edgeCount = 0;
-            int v = sc.nextInt();
-            int e = sc.nextInt();
-            for (int i = 0; i < v; i++) {
-                addVertex(sc.nextInt());
-            }
-            for (int i = 0; i < e; i++) {
-                addEdge(sc.nextInt(), sc.nextInt());
-            }
-        } catch (FileNotFoundException ex) {
-            throw new UncheckedIOException(ex);
-        }
-    }
-
-    @Override
-    public Graph copy() {
-        AdjacencyList copy = new AdjacencyList();
-        for (int v : getVertices()) {
-            copy.addVertex(v);
-        }
-        for (int v : getVertices()) {
-            for (int n : getNeighbors(v)) {
-                copy.addEdge(v, n);
-            }
-        }
-        return copy;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Graph)) {
-            return false;
-        }
-        Graph other = (Graph) obj;
-        if (getVertexCount() != other.getVertexCount()) {
-            return false;
-        }
-        if (getEdgeCount() != other.getEdgeCount()) {
-            return false;
-        }
-        for (int v : getVertices()) {
-            if (!other.hasVertex(v)) {
-                return false;
-            }
-            List<Integer> neighbors = getNeighbors(v);
-            List<Integer> otherNeighbors = other.getNeighbors(v);
-            if (neighbors.size() != otherNeighbors.size()) {
-                return false;
-            }
-            for (int n : neighbors) {
-                if (!other.hasEdge(v, n)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
