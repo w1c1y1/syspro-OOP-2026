@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.io.*;
 
 public class AdjacencyList implements Graph {
     private Map<Integer, List<Integer>> adjacency;
@@ -19,21 +17,20 @@ public class AdjacencyList implements Graph {
 
     @Override
     public void removeVertex(int vertex) {
-        if (adjacency.containsKey(vertex)) {
-            edgeCount -= adjacency.get(vertex).size();
-            adjacency.remove(vertex);
-            for (List<Integer> neighbors : adjacency.values()) {
-                if (neighbors.remove(Integer.valueOf(vertex))) {
-                    edgeCount--;
-                }
+        if (!adjacency.containsKey(vertex)) return;
+        edgeCount -= adjacency.get(vertex).size();
+        adjacency.remove(vertex);
+        for (List<Integer> neighbors : adjacency.values()) {
+            if (neighbors.remove(Integer.valueOf(vertex))) {
+                edgeCount--;
             }
         }
     }
 
     @Override
     public void addEdge(int from, int to) {
-        if (adjacency.containsKey(from) && adjacency.containsKey(to) &&
-                !adjacency.get(from).contains(to)) {
+        if (adjacency.containsKey(from) && adjacency.containsKey(to)
+                && !adjacency.get(from).contains(to)) {
             adjacency.get(from).add(to);
             edgeCount++;
         }
@@ -41,15 +38,15 @@ public class AdjacencyList implements Graph {
 
     @Override
     public void removeEdge(int from, int to) {
-        if (adjacency.containsKey(from) &&
-                adjacency.get(from).remove(Integer.valueOf(to))) {
+        if (adjacency.containsKey(from)
+                && adjacency.get(from).remove(Integer.valueOf(to))) {
             edgeCount--;
         }
     }
 
     @Override
     public List<Integer> getNeighbors(int vertex) {
-        return adjacency.getOrDefault(vertex, new ArrayList<>());
+        return new ArrayList<>(adjacency.getOrDefault(vertex, new ArrayList<>()));
     }
 
     @Override
@@ -78,44 +75,45 @@ public class AdjacencyList implements Graph {
     }
 
     @Override
+    public void readFromFile(String fileName) {
+        try (Scanner sc = new Scanner(new File(fileName))) {
+            adjacency.clear();
+            edgeCount = 0;
+            int v = sc.nextInt();
+            int e = sc.nextInt();
+            for (int i = 0; i < v; i++) addVertex(sc.nextInt());
+            for (int i = 0; i < e; i++) addEdge(sc.nextInt(), sc.nextInt());
+        } catch (FileNotFoundException ex) {
+            throw new UncheckedIOException(ex);
+        }
+    }
+
+    @Override
     public Graph copy() {
         AdjacencyList copy = new AdjacencyList();
-        for (int v : getVertices()) {
-            copy.addVertex(v);
-        }
-        for (int v : getVertices()) {
-            for (int neighbor : getNeighbors(v)) {
-                copy.addEdge(v, neighbor);
-            }
-        }
+        for (int v : getVertices()) copy.addVertex(v);
+        for (int v : getVertices())
+            for (int n : getNeighbors(v)) copy.addEdge(v, n);
         return copy;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) return true;
         if (!(obj instanceof Graph)) return false;
         Graph other = (Graph) obj;
-        if (getVertexCount() != other.getVertexCount() ||
-                getEdgeCount() != other.getEdgeCount()) {
-            return false;
-        }
+        if (getVertexCount() != other.getVertexCount()) return false;
+        if (getEdgeCount() != other.getEdgeCount()) return false;
         for (int v : getVertices()) {
-            if (!other.hasVertex(v)) {
-                return false;
-            }
+            if (!other.hasVertex(v)) return false;
             List<Integer> neighbors = getNeighbors(v);
             List<Integer> otherNeighbors = other.getNeighbors(v);
-            if (neighbors.size() != otherNeighbors.size()) {
-                return false;
-            }
-            for (int n : neighbors) {
-                if (!other.hasEdge(v, n)) {
-                    return false;
-                }
-            }
+            if (neighbors.size() != otherNeighbors.size()) return false;
+            for (int n : neighbors) if (!other.hasEdge(v, n)) return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {
