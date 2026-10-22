@@ -95,9 +95,10 @@ public class IncidenceMatrix implements Graph {
 
     @Override
     public boolean hasEdge(int from, int to) {
-        for (int[] e : edges) if (e[0] == from && e[1] == to) {
-            return true;
-        }
+        for (int[] e : edges)
+            if (e[0] == from && e[1] == to) {
+                return true;
+            }
         return false;
     }
 

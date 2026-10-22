@@ -1,14 +1,15 @@
 import java.util.*;
 
 /**
- * Implements Topological sort on oriented graph. 
+ * Implements Topological sort on oriented graph.
  * Does it with different graph implementations.
  */
 public class TopologicalSort {
     /**
      * Takes graph as an argument and sorts it.
+     *
      * @param graph we need to sort.
-     * Must be inherited from Graph interface.
+     *              Must be inherited from Graph interface.
      * @return list of vertexes (integers) in sorted order.
      */
     public List<Integer> topologicalSort(Graph graph) {
