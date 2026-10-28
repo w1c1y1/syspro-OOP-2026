@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"ControlHelper"},{"p":"<Unnamed>","l":"ControlPlan"},{"p":"<Unnamed>","l":"ControlType"},{"p":"<Unnamed>","l":"ElectronicGradebook.EducationForm"},{"p":"<Unnamed>","l":"ElectronicGradebook"},{"p":"<Unnamed>","l":"Grade"}];updateSearchResults();
