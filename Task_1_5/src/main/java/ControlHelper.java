@@ -38,10 +38,12 @@ public class ControlHelper {
      * @param differentiatedCreditSubjects differentiated credit subject names.
      * @param differentiatedCreditGrade    grade for differentiated credits.
      */
-    public void recordExamSession(int semester, List<String> examSubjects, Grade examGrade,
-                                  List<String> differentiatedCreditSubjects, Grade differentiatedCreditGrade) {
+    public void recordExamSession(int semester, List<String> examSubjects,
+                                  Grade examGrade, List<String> differentiatedCreditSubjects,
+                                  Grade differentiatedCreditGrade) {
         recordAll(ControlType.exam, semester, examSubjects, examGrade);
-        recordAll(ControlType.differentiatedCredit, semester, differentiatedCreditSubjects, differentiatedCreditGrade);
+        recordAll(ControlType.differentiatedCredit, semester,
+                differentiatedCreditSubjects, differentiatedCreditGrade);
     }
 
     /**

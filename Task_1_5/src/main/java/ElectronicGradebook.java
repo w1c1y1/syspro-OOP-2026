@@ -103,8 +103,8 @@ public class ElectronicGradebook {
      * @return grade if it was recorded, otherwise an empty value.
      */
     public Optional<Grade> getGrade(ControlType type, int semester, String subjectName) {
-        if (type == null || subjectName == null ||
-                semester < 1 || semester > controlPlan.getSemesterCount()) {
+        if (type == null || subjectName == null
+                || semester < 1 || semester > controlPlan.getSemesterCount()) {
             return Optional.empty();
         }
         List<Subject> semesterGrades = grades.get(type).get(semester - 1);
