@@ -14,6 +14,7 @@ public enum Grade {
 
     /**
      * Sets the numeric value of a grade.
+     *
      * @param value numeric value.
      */
     Grade(int value) {
@@ -22,6 +23,7 @@ public enum Grade {
 
     /**
      * Gets the numeric value of a grade.
+     *
      * @return grade value.
      */
     public int getValue() {
@@ -30,6 +32,7 @@ public enum Grade {
 
     /**
      * Checks whether a grade has a numeric value.
+     *
      * @return true if this is a numeric grade.
      */
     public boolean isNumeric() {

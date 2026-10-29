@@ -25,6 +25,7 @@ public class ControlPlan {
 
     /**
      * Gets the number of semesters.
+     *
      * @return number of semesters in the plan.
      */
     public int getSemesterCount() {
@@ -33,7 +34,8 @@ public class ControlPlan {
 
     /**
      * Gets the number of controls of a given type in a semester.
-     * @param type type of control.
+     *
+     * @param type     type of control.
      * @param semester number of semester.
      * @return number of controls or zero if arguments are out of range.
      */
@@ -46,6 +48,7 @@ public class ControlPlan {
 
     /**
      * Gets the number of controls of a type in every semester.
+     *
      * @param type type of control.
      * @return list with counts for all semesters.
      */
@@ -58,6 +61,7 @@ public class ControlPlan {
 
     /**
      * Gets the total number of controls of a type.
+     *
      * @param type type of control.
      * @return total number of controls.
      */
@@ -70,6 +74,7 @@ public class ControlPlan {
 
     /**
      * Gets the total number of all controls.
+     *
      * @return total number of controls in the plan.
      */
     public int getTotalCount() {
@@ -80,6 +85,7 @@ public class ControlPlan {
 
     /**
      * Gets the total number of controls in a semester.
+     *
      * @param semester number of semester.
      * @return total number of controls or zero if the semester is out of range.
      */

@@ -30,7 +30,8 @@ public class ElectronicGradebook {
 
     /**
      * Creates a gradebook with the given education form and current semester.
-     * @param educationForm student's form of education.
+     *
+     * @param educationForm   student's form of education.
      * @param currentSemester current semester number.
      */
     public ElectronicGradebook(EducationForm educationForm, int currentSemester) {
@@ -49,6 +50,7 @@ public class ElectronicGradebook {
 
     /**
      * Gets the curriculum control plan.
+     *
      * @return control plan.
      */
     public ControlPlan getControlPlan() {
@@ -57,6 +59,7 @@ public class ElectronicGradebook {
 
     /**
      * Gets student's form of education.
+     *
      * @return form of education.
      */
     public EducationForm getEducationForm() {
@@ -65,10 +68,11 @@ public class ElectronicGradebook {
 
     /**
      * Adds a grade for a control in the given semester.
-     * @param type type of control.
-     * @param semester semester number.
+     *
+     * @param type        type of control.
+     * @param semester    semester number.
      * @param subjectName name of the subject.
-     * @param grade grade to record.
+     * @param grade       grade to record.
      * @return true if the grade was added, false if the arguments are invalid.
      */
     public boolean recordGrade(ControlType type, int semester, String subjectName, Grade grade) {
@@ -92,8 +96,9 @@ public class ElectronicGradebook {
 
     /**
      * Gets a grade for a control.
-     * @param type type of control.
-     * @param semester semester number.
+     *
+     * @param type        type of control.
+     * @param semester    semester number.
      * @param subjectName name of the subject.
      * @return grade if it was recorded, otherwise an empty value.
      */
@@ -111,6 +116,7 @@ public class ElectronicGradebook {
 
     /**
      * Calculates the average of all numeric grades.
+     *
      * @return average grade or zero if there are no numeric grades.
      */
     public double getAverageGrade() {
@@ -126,6 +132,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether transfer from paid to budget education is possible.
+     *
      * @return true if the last two completed sessions satisfy the requirements.
      */
     public boolean canTransferToBudget() {
@@ -150,6 +157,7 @@ public class ElectronicGradebook {
 
     /**
      * Transfers the student to budget education if the requirements are satisfied.
+     *
      * @return true if the transfer was made.
      */
     public boolean transferToBudget() {
@@ -163,6 +171,7 @@ public class ElectronicGradebook {
     /**
      * Checks whether the student can receive a diploma with honors.
      * Ungraded future controls are considered when making the prediction.
+     *
      * @return true if the current grades allow the diploma with honors.
      */
     public boolean canReceiveRedDiploma() {
@@ -213,8 +222,9 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether the student can receive an increased scholarship this semester.
+     *
      * @return true if all graded exams and differentiated credits are excellent
-     *         and all credits are passed.
+     * and all credits are passed.
      */
     public boolean canReceiveIncreasedScholarship() {
         if (educationForm != EducationForm.budget
@@ -235,6 +245,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether a credit is not passed.
+     *
      * @return true if there is an unpassed credit up to the current semester.
      */
     boolean hasUnclearedCredits() {
@@ -246,6 +257,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether at least one exam grade is recorded in a semester.
+     *
      * @param semester semester number.
      * @return true if an exam grade is recorded.
      */
@@ -256,6 +268,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether all exams and differentiated credits are graded in a semester.
+     *
      * @param semester semester number.
      * @return true if all planned grades are recorded.
      */
@@ -269,6 +282,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks grades in a session against transfer requirements.
+     *
      * @param semester semester number.
      * @return true if the grades meet the requirements.
      */
@@ -285,7 +299,8 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether a grade exists for the given control type.
-     * @param type type of control.
+     *
+     * @param type  type of control.
      * @param grade grade to find.
      * @return true if the grade is found.
      */
@@ -295,6 +310,7 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether the thesis has a grade other than excellent.
+     *
      * @return true if a non-excellent grade is recorded.
      */
     boolean hasNonExcellentThesis() {
@@ -304,6 +320,7 @@ public class ElectronicGradebook {
 
     /**
      * Gets all grades of a control type.
+     *
      * @param type type of control.
      * @return grades from all semesters.
      */
@@ -316,7 +333,8 @@ public class ElectronicGradebook {
 
     /**
      * Gets grades of a control type in one semester.
-     * @param type type of control.
+     *
+     * @param type     type of control.
      * @param semester semester number.
      * @return grades in the semester or an empty list if the semester is out of range.
      */
@@ -331,7 +349,8 @@ public class ElectronicGradebook {
 
     /**
      * Checks whether a grade is valid for a control type.
-     * @param type type of control.
+     *
+     * @param type  type of control.
      * @param grade grade to check.
      * @return true if the grade can be recorded for this type.
      */

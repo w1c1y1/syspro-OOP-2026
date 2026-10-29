@@ -8,6 +8,7 @@ public class ControlHelper {
 
     /**
      * Sets the record book used to enter grades.
+     *
      * @param gradebook record book to fill.
      */
     public ControlHelper(ElectronicGradebook gradebook) {
@@ -16,10 +17,11 @@ public class ControlHelper {
 
     /**
      * Records the same grade for every control of a type in one semester.
-     * @param type type of control.
-     * @param semester semester number.
+     *
+     * @param type         type of control.
+     * @param semester     semester number.
      * @param subjectNames subject names to record grades for.
-     * @param grade grade to record.
+     * @param grade        grade to record.
      */
     public void recordAll(ControlType type, int semester, List<String> subjectNames, Grade grade) {
         for (String subjectName : subjectNames) {
@@ -29,11 +31,12 @@ public class ControlHelper {
 
     /**
      * Records grades for exams and differentiated credits in one semester.
-     * @param semester semester number.
-     * @param examSubjects exam subject names.
-     * @param examGrade grade for exams.
+     *
+     * @param semester                     semester number.
+     * @param examSubjects                 exam subject names.
+     * @param examGrade                    grade for exams.
      * @param differentiatedCreditSubjects differentiated credit subject names.
-     * @param differentiatedCreditGrade grade for differentiated credits.
+     * @param differentiatedCreditGrade    grade for differentiated credits.
      */
     public void recordExamSession(int semester, List<String> examSubjects, Grade examGrade,
                                   List<String> differentiatedCreditSubjects, Grade differentiatedCreditGrade) {
@@ -43,8 +46,9 @@ public class ControlHelper {
 
     /**
      * Records the same grade for every credit in the curriculum.
+     *
      * @param creditSubjects credit subject names.
-     * @param grade grade to record.
+     * @param grade          grade to record.
      */
     public void recordAllCredits(List<String> creditSubjects, Grade grade) {
         for (int semester = 1;
@@ -56,8 +60,9 @@ public class ControlHelper {
 
     /**
      * Records a grade for the first requested diploma assessments.
+     *
      * @param diplomaSubjects diploma assessment subject names.
-     * @param grade grade to record.
+     * @param grade           grade to record.
      */
     public void recordFirstDiplomaGrades(List<String> diplomaSubjects, Grade grade) {
         for (String subjectName : diplomaSubjects) {
