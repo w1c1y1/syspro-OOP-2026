@@ -18,65 +18,50 @@ public class ControlHelper {
      * Records the same grade for every control of a type in one semester.
      * @param type type of control.
      * @param semester semester number.
+     * @param subjectNames subject names to record grades for.
      * @param grade grade to record.
      */
-    public void recordAll(ControlType type, int semester, Grade grade) {
-        for (int controlNumber = 1;
-             controlNumber <= gradebook.getControlPlan().getCount(type, semester);
-             controlNumber++) {
-            gradebook.recordGrade(type, semester, controlNumber, grade);
+    public void recordAll(ControlType type, int semester, List<String> subjectNames, Grade grade) {
+        for (String subjectName : subjectNames) {
+            gradebook.recordGrade(type, semester, subjectName, grade);
         }
     }
 
-  
     /**
      * Records grades for exams and differentiated credits in one semester.
      * @param semester semester number.
+     * @param examSubjects exam subject names.
      * @param examGrade grade for exams.
+     * @param differentiatedCreditSubjects differentiated credit subject names.
      * @param differentiatedCreditGrade grade for differentiated credits.
      */
-    public void recordExamSession(int semester, Grade examGrade, Grade differentiatedCreditGrade) {
-        recordAll(ControlType.exam, semester, examGrade);
-        recordAll(ControlType.differentiatedCredit, semester, differentiatedCreditGrade);
+    public void recordExamSession(int semester, List<String> examSubjects, Grade examGrade,
+                                  List<String> differentiatedCreditSubjects, Grade differentiatedCreditGrade) {
+        recordAll(ControlType.exam, semester, examSubjects, examGrade);
+        recordAll(ControlType.differentiatedCredit, semester, differentiatedCreditSubjects, differentiatedCreditGrade);
     }
 
     /**
      * Records the same grade for every credit in the curriculum.
+     * @param creditSubjects credit subject names.
      * @param grade grade to record.
      */
-    public void recordAllCredits(Grade grade) {
+    public void recordAllCredits(List<String> creditSubjects, Grade grade) {
         for (int semester = 1;
              semester <= gradebook.getControlPlan().getSemesterCount();
              semester++) {
-            recordAll(ControlType.credit, semester, grade);
+            recordAll(ControlType.credit, semester, creditSubjects, grade);
         }
     }
 
     /**
      * Records a grade for the first requested diploma assessments.
-     * @param count number of assessments to grade.
+     * @param diplomaSubjects diploma assessment subject names.
      * @param grade grade to record.
      */
-    public void recordFirstDiplomaGrades(int count, Grade grade) {
-        int recorded = 0;
-        for (ControlType type : List.of(
-                ControlType.exam,
-                ControlType.differentiatedCredit,
-                ControlType.practiceReportDefense)) {
-            for (int semester = 1;
-                 semester <= gradebook.getControlPlan().getSemesterCount();
-                 semester++) {
-                for (int controlNumber = 1;
-                     controlNumber <= gradebook.getControlPlan().getCount(type, semester);
-                     controlNumber++) {
-                    if (recorded >= count) {
-                        return;
-                    }
-                    gradebook.recordGrade(type, semester, controlNumber, grade);
-                    recorded++;
-                }
-            }
+    public void recordFirstDiplomaGrades(List<String> diplomaSubjects, Grade grade) {
+        for (String subjectName : diplomaSubjects) {
+            gradebook.recordGrade(ControlType.exam, 1, subjectName, grade);
         }
     }
-
 }

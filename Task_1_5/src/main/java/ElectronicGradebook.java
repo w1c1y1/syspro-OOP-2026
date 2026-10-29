@@ -13,8 +13,18 @@ public class ElectronicGradebook {
         paid
     }
 
+    private static class Subject {
+        String name;
+        Grade grade;
+
+        Subject(String name, Grade grade) {
+            this.name = name;
+            this.grade = grade;
+        }
+    }
+
     ControlPlan controlPlan;
-    EnumMap<ControlType, List<List<Grade>>> grades;
+    EnumMap<ControlType, List<List<Subject>>> grades;
     EducationForm educationForm;
     int currentSemester;
 
@@ -29,10 +39,9 @@ public class ElectronicGradebook {
         this.educationForm = educationForm;
         this.currentSemester = currentSemester;
         for (ControlType type : ControlType.values()) {
-            List<List<Grade>> semesters = new ArrayList<>();
+            List<List<Subject>> semesters = new ArrayList<>();
             for (int semester = 1; semester <= controlPlan.getSemesterCount(); semester++) {
-                semesters.add(new ArrayList<>(
-                        Collections.nCopies(controlPlan.getCount(type, semester), Grade.notGraded)));
+                semesters.add(new ArrayList<>());
             }
             grades.put(type, semesters);
         }
@@ -58,21 +67,26 @@ public class ElectronicGradebook {
      * Adds a grade for a control in the given semester.
      * @param type type of control.
      * @param semester semester number.
-     * @param controlNumber number of control in the semester.
+     * @param subjectName name of the subject.
      * @param grade grade to record.
      * @return true if the grade was added, false if the arguments are invalid.
      */
-    public boolean recordGrade(ControlType type, int semester, int controlNumber, Grade grade) {
-        if (type == null || grade == null || grade == Grade.notGraded
-                || semester < 1 || semester > controlPlan.getSemesterCount()) {
-            return false;
-        }
-        List<Grade> semesterGrades = grades.get(type).get(semester - 1);
-        if (controlNumber < 1 || controlNumber > semesterGrades.size()
+    public boolean recordGrade(ControlType type, int semester, String subjectName, Grade grade) {
+        if (type == null || subjectName == null || grade == null || grade == Grade.notGraded
+                || semester < 1 || semester > controlPlan.getSemesterCount()
                 || !isValidGrade(type, grade)) {
             return false;
         }
-        semesterGrades.set(controlNumber - 1, grade);
+        List<Subject> semesterGrades = grades.get(type).get(semester - 1);
+        Subject existing = semesterGrades.stream()
+                .filter(subject -> subject.name.equals(subjectName))
+                .findFirst()
+                .orElse(null);
+        if (existing != null) {
+            existing.grade = grade;
+        } else {
+            semesterGrades.add(new Subject(subjectName, grade));
+        }
         return true;
     }
 
@@ -80,19 +94,19 @@ public class ElectronicGradebook {
      * Gets a grade for a control.
      * @param type type of control.
      * @param semester semester number.
-     * @param controlNumber number of control in the semester.
+     * @param subjectName name of the subject.
      * @return grade if it was recorded, otherwise an empty value.
      */
-    public Optional<Grade> getGrade(ControlType type, int semester, int controlNumber) {
-        if (type == null || semester < 1 || semester > controlPlan.getSemesterCount()) {
+    public Optional<Grade> getGrade(ControlType type, int semester, String subjectName) {
+        if (type == null || subjectName == null || semester < 1 || semester > controlPlan.getSemesterCount()) {
             return Optional.empty();
         }
-        List<Grade> semesterGrades = grades.get(type).get(semester - 1);
-        if (controlNumber < 1 || controlNumber > semesterGrades.size()) {
-            return Optional.empty();
-        }
-        Grade grade = semesterGrades.get(controlNumber - 1);
-        return grade == Grade.notGraded ? Optional.empty() : Optional.of(grade);
+        List<Subject> semesterGrades = grades.get(type).get(semester - 1);
+        return semesterGrades.stream()
+                .filter(subject -> subject.name.equals(subjectName))
+                .map(subject -> subject.grade)
+                .filter(grade -> grade != Grade.notGraded)
+                .findFirst();
     }
 
     /**
@@ -103,6 +117,7 @@ public class ElectronicGradebook {
         return grades.values().stream()
                 .flatMap(Collection::stream)
                 .flatMap(Collection::stream)
+                .map(subject -> subject.grade)
                 .filter(Grade::isNumeric)
                 .mapToInt(Grade::getValue)
                 .average()
@@ -151,16 +166,6 @@ public class ElectronicGradebook {
      * @return true if the current grades allow the diploma with honors.
      */
     public boolean canReceiveRedDiploma() {
-        List<Grade> diplomaGrades = Stream.of(
-                        getAllGrades(ControlType.exam),
-                        getAllGrades(ControlType.differentiatedCredit),
-                        getAllGrades(ControlType.practiceReportDefense))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
-        if (diplomaGrades.isEmpty()
-                || getAllGrades(ControlType.thesisDefense).isEmpty()) {
-            return false;
-        }
         if (hasGrade(ControlType.exam, Grade.satisfactory)
                 || hasGrade(ControlType.exam, Grade.unsatisfactory)
                 || hasGrade(ControlType.differentiatedCredit, Grade.satisfactory)
@@ -170,14 +175,40 @@ public class ElectronicGradebook {
                 || hasNonExcellentThesis()) {
             return false;
         }
-        long excellentCount = diplomaGrades.stream()
+
+        long totalDiplomaSubjects = IntStream
+                .rangeClosed(1, controlPlan.getSemesterCount())
+                .mapToLong(semester ->
+                        (long) controlPlan.getCount(ControlType.exam, semester)
+                                + controlPlan.getCount(ControlType.differentiatedCredit, semester)
+                                + controlPlan.getCount(ControlType.practiceReportDefense, semester))
+                .sum();
+
+        if (totalDiplomaSubjects == 0) {
+            return true;
+        }
+
+        List<Grade> diplomaGrades = Stream.of(
+                        getAllGrades(ControlType.exam),
+                        getAllGrades(ControlType.differentiatedCredit),
+                        getAllGrades(ControlType.practiceReportDefense))
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        long lockedNonExcellent = diplomaGrades.stream()
+                .filter(grade -> grade != Grade.excellent && grade != Grade.notGraded)
+                .count();
+
+        long excellentSoFar = diplomaGrades.stream()
                 .filter(grade -> grade == Grade.excellent)
                 .count();
-        long ungradedCount = diplomaGrades.stream()
-                .filter(grade -> grade == Grade.notGraded)
-                .count();
-        long requiredExcellentCount = (diplomaGrades.size() * 3L + 3) / 4;
-        return excellentCount + ungradedCount >= requiredExcellentCount;
+
+        long optimisticExcellent = Math.max(
+                excellentSoFar,
+                totalDiplomaSubjects - lockedNonExcellent);
+
+        long requiredExcellent = (totalDiplomaSubjects * 3L + 3) / 4;
+        return optimisticExcellent >= requiredExcellent;
     }
 
     /**
@@ -199,7 +230,7 @@ public class ElectronicGradebook {
                 .collect(Collectors.toList());
         return !semesterGrades.isEmpty()
                 && semesterGrades.stream().allMatch(grade ->
-                        grade == Grade.excellent || grade == Grade.passed);
+                grade == Grade.excellent || grade == Grade.passed);
     }
 
     /**
@@ -247,7 +278,9 @@ public class ElectronicGradebook {
         boolean differentiatedCreditsAccepted =
                 getSemesterGrades(ControlType.differentiatedCredit, semester).stream()
                         .allMatch(grade -> grade != Grade.unsatisfactory);
-        return examsAccepted && differentiatedCreditsAccepted;
+        boolean creditsAccepted = getSemesterGrades(ControlType.credit, semester).stream()
+                .allMatch(grade -> grade == Grade.passed);
+        return examsAccepted && differentiatedCreditsAccepted && creditsAccepted;
     }
 
     /**
@@ -277,6 +310,7 @@ public class ElectronicGradebook {
     List<Grade> getAllGrades(ControlType type) {
         return grades.get(type).stream()
                 .flatMap(Collection::stream)
+                .map(subject -> subject.grade)
                 .collect(Collectors.toList());
     }
 
@@ -290,7 +324,9 @@ public class ElectronicGradebook {
         if (type == null || semester < 1 || semester > controlPlan.getSemesterCount()) {
             return List.of();
         }
-        return grades.get(type).get(semester - 1);
+        return grades.get(type).get(semester - 1).stream()
+                .map(subject -> subject.grade)
+                .collect(Collectors.toList());
     }
 
     /**

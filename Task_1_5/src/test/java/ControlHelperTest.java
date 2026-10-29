@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ControlHelperTest {
     int firstSemester = 1;
     int secondSemester = 2;
-    int firstControl = 1;
-    int secondControl = 2;
+    String firstControl = "1";
+    String secondControl = "2";
 
     @Test
     void testRecordsAllGradesInSemester() {
@@ -16,7 +16,8 @@ class ControlHelperTest {
                 new ElectronicGradebook(ElectronicGradebook.EducationForm.budget, firstSemester);
         ControlHelper helper = new ControlHelper(gradebook);
 
-        helper.recordAll(ControlType.exam, firstSemester, Grade.excellent);
+        helper.recordAll(ControlType.exam, firstSemester,
+                List.of(firstControl, secondControl), Grade.excellent);
 
         assertEquals(Optional.of(Grade.excellent),
                 gradebook.getGrade(ControlType.exam, firstSemester, firstControl));
@@ -30,12 +31,14 @@ class ControlHelperTest {
                 new ElectronicGradebook(ElectronicGradebook.EducationForm.budget, secondSemester);
         ControlHelper helper = new ControlHelper(gradebook);
 
-        helper.recordExamSession(secondSemester, Grade.excellent, Grade.satisfactory);
+        helper.recordExamSession(secondSemester,
+                List.of("Exam"), Grade.excellent,
+                List.of("DiffCredit"), Grade.satisfactory);
 
         assertEquals(Optional.of(Grade.excellent),
-                gradebook.getGrade(ControlType.exam, secondSemester, firstControl));
+                gradebook.getGrade(ControlType.exam, secondSemester, "Exam"));
         assertEquals(Optional.of(Grade.satisfactory),
-                gradebook.getGrade(ControlType.differentiatedCredit, secondSemester, firstControl));
+                gradebook.getGrade(ControlType.differentiatedCredit, secondSemester, "DiffCredit"));
     }
 
     @Test
@@ -44,12 +47,12 @@ class ControlHelperTest {
                 new ElectronicGradebook(ElectronicGradebook.EducationForm.budget, secondSemester);
         ControlHelper helper = new ControlHelper(gradebook);
 
-        helper.recordAllCredits(Grade.passed);
+        helper.recordAllCredits(List.of("Credit1", "Credit2"), Grade.passed);
 
         assertEquals(Optional.of(Grade.passed),
-                gradebook.getGrade(ControlType.credit, firstSemester, firstControl));
+                gradebook.getGrade(ControlType.credit, firstSemester, "Credit1"));
         assertEquals(Optional.of(Grade.passed),
-                gradebook.getGrade(ControlType.credit, secondSemester, firstControl));
+                gradebook.getGrade(ControlType.credit, secondSemester, "Credit2"));
     }
 
     @Test
@@ -58,12 +61,12 @@ class ControlHelperTest {
                 new ElectronicGradebook(ElectronicGradebook.EducationForm.budget, secondSemester);
         ControlHelper helper = new ControlHelper(gradebook);
 
-        helper.recordFirstDiplomaGrades(secondControl, Grade.good);
+        helper.recordFirstDiplomaGrades(List.of(firstControl, secondControl), Grade.good);
 
         assertEquals(Optional.of(Grade.good),
                 gradebook.getGrade(ControlType.exam, firstSemester, firstControl));
         assertEquals(Optional.of(Grade.good),
                 gradebook.getGrade(ControlType.exam, firstSemester, secondControl));
-        assertTrue(gradebook.getGrade(ControlType.exam, firstSemester, 3).isEmpty());
+        assertTrue(gradebook.getGrade(ControlType.exam, firstSemester, "3").isEmpty());
     }
 }
