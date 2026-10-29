@@ -116,7 +116,10 @@ class ElectronicGradebookTest {
         helper.recordExamSession(seventhSemester,
                 java.util.List.of("Exam1", "Exam2"), Grade.good,
                 java.util.List.of("DiffCredit1"), Grade.excellent);
-        helper.recordAllCredits(java.util.List.of("Credit1", "Credit2", "Credit3", "Credit4", "Credit5", "Credit6", "Credit7"), Grade.passed);
+        helper.recordAllCredits(
+                java.util.List.of("Credit1", "Credit2", "Credit3",
+                        "Credit4", "Credit5", "Credit6", "Credit7"),
+                Grade.passed);
 
         assertTrue(gradebook.canTransferToBudget());
     }
@@ -132,7 +135,10 @@ class ElectronicGradebookTest {
         helper.recordExamSession(seventhSemester,
                 java.util.List.of("Exam1", "Exam2"), Grade.good,
                 java.util.List.of("DiffCredit1"), Grade.excellent);
-        helper.recordAllCredits(java.util.List.of("Credit1", "Credit2", "Credit3", "Credit4", "Credit5", "Credit6", "Credit7"), Grade.passed);
+        helper.recordAllCredits(
+                java.util.List.of("Credit1", "Credit2", "Credit3",
+                        "Credit4", "Credit5", "Credit6", "Credit7"),
+                Grade.passed);
 
         gradebook.transferToBudget();
 
@@ -150,7 +156,10 @@ class ElectronicGradebookTest {
         helper.recordExamSession(seventhSemester,
                 java.util.List.of("Exam1", "Exam2"), Grade.satisfactory,
                 java.util.List.of("DiffCredit1"), Grade.excellent);
-        helper.recordAllCredits(java.util.List.of("Credit1", "Credit2", "Credit3", "Credit4", "Credit5", "Credit6", "Credit7"), Grade.passed);
+        helper.recordAllCredits(
+                java.util.List.of("Credit1", "Credit2", "Credit3",
+                        "Credit4", "Credit5", "Credit6", "Credit7"),
+                Grade.passed);
 
         assertFalse(gradebook.canTransferToBudget());
     }
@@ -166,7 +175,10 @@ class ElectronicGradebookTest {
         helper.recordExamSession(seventhSemester,
                 java.util.List.of("Exam1", "Exam2"), Grade.good,
                 java.util.List.of("DiffCredit1"), Grade.excellent);
-        helper.recordAllCredits(java.util.List.of("Credit1", "Credit2", "Credit3", "Credit4", "Credit5", "Credit6", "Credit7"), Grade.passed);
+        helper.recordAllCredits(
+                java.util.List.of("Credit1", "Credit2", "Credit3",
+                        "Credit4", "Credit5", "Credit6", "Credit7"),
+                Grade.passed);
 
         assertTrue(gradebook.canTransferToBudget());
     }
@@ -182,7 +194,10 @@ class ElectronicGradebookTest {
         helper.recordExamSession(seventhSemester,
                 java.util.List.of("Exam1", "Exam2"), Grade.excellent,
                 java.util.List.of("DiffCredit1"), Grade.excellent);
-        helper.recordAllCredits(java.util.List.of("Credit1", "Credit2", "Credit3", "Credit4", "Credit5", "Credit6", "Credit7"), Grade.passed);
+        helper.recordAllCredits(
+                java.util.List.of("Credit1", "Credit2", "Credit3",
+                        "Credit4", "Credit5", "Credit6", "Credit7"),
+                Grade.passed);
         gradebook.recordGrade(ControlType.credit, firstSemester, firstControl, Grade.failed);
 
         assertFalse(gradebook.canTransferToBudget());
@@ -260,9 +275,13 @@ class ElectronicGradebookTest {
                 new ElectronicGradebook(
                         ElectronicGradebook.EducationForm.budget, seventhSemester);
         ControlHelper helper = new ControlHelper(gradebook);
-        helper.recordAll(ControlType.exam, seventhSemester, java.util.List.of("Exam1", "Exam2"), Grade.excellent);
-        helper.recordAll(ControlType.differentiatedCredit, seventhSemester, java.util.List.of("DiffCredit1", "DiffCredit2", "DiffCredit3", "DiffCredit4"), Grade.excellent);
-        helper.recordAll(ControlType.credit, seventhSemester, java.util.List.of("Credit1", "Credit2"), Grade.passed);
+        helper.recordAll(ControlType.exam, seventhSemester,
+                java.util.List.of("Exam1", "Exam2"), Grade.excellent);
+        helper.recordAll(ControlType.differentiatedCredit, seventhSemester,
+                java.util.List.of("DiffCredit1", "DiffCredit2",
+                        "DiffCredit3", "DiffCredit4"), Grade.excellent);
+        helper.recordAll(ControlType.credit, seventhSemester,
+                java.util.List.of("Credit1", "Credit2"), Grade.passed);
 
         assertTrue(gradebook.canReceiveIncreasedScholarship());
     }
