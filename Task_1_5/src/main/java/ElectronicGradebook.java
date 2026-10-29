@@ -103,7 +103,8 @@ public class ElectronicGradebook {
      * @return grade if it was recorded, otherwise an empty value.
      */
     public Optional<Grade> getGrade(ControlType type, int semester, String subjectName) {
-        if (type == null || subjectName == null || semester < 1 || semester > controlPlan.getSemesterCount()) {
+        if (type == null || subjectName == null ||
+                semester < 1 || semester > controlPlan.getSemesterCount()) {
             return Optional.empty();
         }
         List<Subject> semesterGrades = grades.get(type).get(semester - 1);
@@ -223,8 +224,8 @@ public class ElectronicGradebook {
     /**
      * Checks whether the student can receive an increased scholarship this semester.
      *
-     * @return true if all graded exams and differentiated credits are excellent
-     * and all credits are passed.
+     * @return true if all graded exams and differentiated credits are excellent.
+     *      and all credits are passed.
      */
     public boolean canReceiveIncreasedScholarship() {
         if (educationForm != EducationForm.budget
