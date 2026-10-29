@@ -106,26 +106,30 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordAll(ControlType,int,Grade)" class="member-name-link">recordAll</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordAll(ControlType,int,java.util.List,Grade)" class="member-name-link">recordAll</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;subjectNames,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Records the same grade for every control of a type in one semester.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordAllCredits(Grade)" class="member-name-link">recordAllCredits</a><wbr>(<a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordAllCredits(java.util.List,Grade)" class="member-name-link">recordAllCredits</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;creditSubjects,
+ <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Records the same grade for every credit in the curriculum.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordExamSession(int,Grade,Grade)" class="member-name-link">recordExamSession</a><wbr>(int&nbsp;semester,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordExamSession(int,java.util.List,Grade,java.util.List,Grade)" class="member-name-link">recordExamSession</a><wbr>(int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;examSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;examGrade,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;differentiatedCreditSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;differentiatedCreditGrade)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Records grades for exams and differentiated credits in one semester.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordFirstDiplomaGrades(int,Grade)" class="member-name-link">recordFirstDiplomaGrades</a><wbr>(int&nbsp;count,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordFirstDiplomaGrades(java.util.List,Grade)" class="member-name-link">recordFirstDiplomaGrades</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;diplomaSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Records a grade for the first requested diploma assessments.</div>
@@ -167,55 +171,63 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="recordAll(ControlType,int,Grade)">
+<section class="detail" id="recordAll(ControlType,int,java.util.List,Grade)">
 <h3>recordAll</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordAll</span><wbr><span class="parameters">(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;subjectNames,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</span></div>
 <div class="block">Records the same grade for every control of a type in one semester.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - type of control.</dd>
 <dd><code>semester</code> - semester number.</dd>
+<dd><code>subjectNames</code> - subject names to record grades for.</dd>
 <dd><code>grade</code> - grade to record.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="recordExamSession(int,Grade,Grade)">
+<section class="detail" id="recordExamSession(int,java.util.List,Grade,java.util.List,Grade)">
 <h3>recordExamSession</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordExamSession</span><wbr><span class="parameters">(int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;examSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;examGrade,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;differentiatedCreditSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;differentiatedCreditGrade)</span></div>
 <div class="block">Records grades for exams and differentiated credits in one semester.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>semester</code> - semester number.</dd>
+<dd><code>examSubjects</code> - exam subject names.</dd>
 <dd><code>examGrade</code> - grade for exams.</dd>
+<dd><code>differentiatedCreditSubjects</code> - differentiated credit subject names.</dd>
 <dd><code>differentiatedCreditGrade</code> - grade for differentiated credits.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="recordAllCredits(Grade)">
+<section class="detail" id="recordAllCredits(java.util.List,Grade)">
 <h3>recordAllCredits</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordAllCredits</span><wbr><span class="parameters">(<a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordAllCredits</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;creditSubjects,
+ <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</span></div>
 <div class="block">Records the same grade for every credit in the curriculum.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
+<dd><code>creditSubjects</code> - credit subject names.</dd>
 <dd><code>grade</code> - grade to record.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="recordFirstDiplomaGrades(int,Grade)">
+<section class="detail" id="recordFirstDiplomaGrades(java.util.List,Grade)">
 <h3>recordFirstDiplomaGrades</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordFirstDiplomaGrades</span><wbr><span class="parameters">(int&nbsp;count,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordFirstDiplomaGrades</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;diplomaSubjects,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</span></div>
 <div class="block">Records a grade for the first requested diploma assessments.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>count</code> - number of assessments to grade.</dd>
+<dd><code>diplomaSubjects</code> - diploma assessment subject names.</dd>
 <dd><code>grade</code> - grade to record.</dd>
 </dl>
 </section>

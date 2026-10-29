@@ -154,16 +154,16 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets student's form of education.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrade(ControlType,int,int)" class="member-name-link">getGrade</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrade(ControlType,int,java.lang.String)" class="member-name-link">getGrade</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
- int&nbsp;controlNumber)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets a grade for a control.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordGrade(ControlType,int,int,Grade)" class="member-name-link">recordGrade</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recordGrade(ControlType,int,java.lang.String,Grade)" class="member-name-link">recordGrade</a><wbr>(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
- int&nbsp;controlNumber,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Adds a grade for a control in the given semester.</div>
@@ -234,18 +234,18 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="recordGrade(ControlType,int,int,Grade)">
+<section class="detail" id="recordGrade(ControlType,int,java.lang.String,Grade)">
 <h3>recordGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">recordGrade</span><wbr><span class="parameters">(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
- int&nbsp;controlNumber,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName,
  <a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&nbsp;grade)</span></div>
 <div class="block">Adds a grade for a control in the given semester.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - type of control.</dd>
 <dd><code>semester</code> - semester number.</dd>
-<dd><code>controlNumber</code> - number of control in the semester.</dd>
+<dd><code>subjectName</code> - name of the subject.</dd>
 <dd><code>grade</code> - grade to record.</dd>
 <dt>Returns:</dt>
 <dd>true if the grade was added, false if the arguments are invalid.</dd>
@@ -253,17 +253,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getGrade(ControlType,int,int)">
+<section class="detail" id="getGrade(ControlType,int,java.lang.String)">
 <h3>getGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Grade.html" title="enum class in Unnamed Package">Grade</a>&gt;</span>&nbsp;<span class="element-name">getGrade</span><wbr><span class="parameters">(<a href="ControlType.html" title="enum class in Unnamed Package">ControlType</a>&nbsp;type,
  int&nbsp;semester,
- int&nbsp;controlNumber)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName)</span></div>
 <div class="block">Gets a grade for a control.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - type of control.</dd>
 <dd><code>semester</code> - semester number.</dd>
-<dd><code>controlNumber</code> - number of control in the semester.</dd>
+<dd><code>subjectName</code> - name of the subject.</dd>
 <dt>Returns:</dt>
 <dd>grade if it was recorded, otherwise an empty value.</dd>
 </dl>
